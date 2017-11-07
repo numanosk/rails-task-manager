@@ -2,7 +2,11 @@
 
 <ul>
   <% @tasks.each do |task| %>
-    <li>Name: <%= task.name %> - Des: <%= task.description %> - Done: <%= task.done %> - Link: <%= link_to "Show", task_path(task) %></li>
+    <li>Name: <%= task.name %> - Description: <%= task.description %> - Done: <%= task.done %> - <%= link_to "Show", task_path(task), method: :show %> - <%= link_to "Edit", task_path(task) %> - <%= link_to "Delete", task_path(task),  method: :delete,
+      data: { confirm: "Are you sure?" } %> </li>
   <% end %>
 </ul>
+
+
+<%= link_to "Create a new task", tasks_new_path %>
 
